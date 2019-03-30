@@ -2,7 +2,7 @@ package rh;
 
 public class Pessoa {
 
-    String nome;
+    private String nome;
     private String sobrenome;
     public String dataDeNascimento;
     public String sexo;
@@ -10,6 +10,19 @@ public class Pessoa {
     public String ocupacao;
 
     public static int totalPessoas = 0;
+
+    public String getNome(){
+        return this.nome;
+    }
+
+    public float getAltura(){
+        return this.altura;
+    }
+
+    public String getSexo(){
+        return this.sexo;
+    }
+
 
     public void setSexo(String sexo){
         if(sexo.equals("m") || sexo.equals("f") || sexo.equals("o") ) {
@@ -28,8 +41,8 @@ public class Pessoa {
     }
 
     public boolean setNome(String nome) {
-        if(nome.length() < 5) {
-            System.out.println("Não é permitido nome menor 20 carteres");
+        if(nome.length() < 3) {
+            System.out.println("Não é permitido nome menor 3 carteres");
             return  false;
         } else {
             this.nome = nome;
@@ -39,8 +52,8 @@ public class Pessoa {
 
     public boolean setNome(String nome, String sobrenome){
         if(this.setNome(nome)){
-            if(sobrenome.length() < 5) {
-                System.out.println("Não é permitido sobrenome menor 10 carteres");
+            if(sobrenome.length() < 3) {
+                System.out.println("Não é permitido sobrenome menor 3 carteres");
                 return false;
             } else {
                 this.sobrenome = sobrenome;
