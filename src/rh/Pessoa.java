@@ -1,6 +1,8 @@
 package rh;
 
-public class Pessoa {
+import java.util.Collection;
+
+public class Pessoa   {
 
     private String nome;
     private String sobrenome;

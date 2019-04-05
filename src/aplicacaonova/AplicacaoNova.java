@@ -1,39 +1,39 @@
 package aplicacaonova;
 import rh.Pessoa;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 public class AplicacaoNova {
 
     public static void main(String[] args) {
         Scanner s = new Scanner(System.in);
-        Pessoa[] array = new Pessoa[4];
-        Pessoa p1;
-        Pessoa p2;
-        Pessoa p3;
-        Pessoa p4;
+        ArrayList<Pessoa> listagemPessoas = new ArrayList<Pessoa>();
+        String opcao = "s";
+        do {
+            System.out.println("Deseja adicionar:");
+            opcao = s.nextLine();
+            if(opcao.equals("s")) {
+                Pessoa p = new Pessoa();
+                System.out.println("Entre com o nome:");
+                p.setNome(s.nextLine());
+                System.out.println("Entre com a aultura");
+                p.setAltura(Float.parseFloat(s.nextLine()));
+                System.out.println("Entre com o Sexo");
+                p.setSexo(s.nextLine());
+                listagemPessoas.add(p);
+            }
+        } while (opcao.equals("s"));
 
-        p1 = new Pessoa();
-        p1.setSexo("o");
-
-        for(int i=0; i < 4; i++){
-            array[i] = new Pessoa();
-            System.out.println("Entre com o nome:");
-            array[i].setNome(s.nextLine());
-            System.out.println("Entre com a aultura");
-            array[i].setAltura(Float.parseFloat(s.nextLine()));
-            System.out.println("Entre com o Sexo");
-            array[i].setSexo(s.nextLine());
-
+        for (Pessoa p: listagemPessoas){
+            System.out.println(p.getNome());
+            System.out.println(p.getAltura());
+            System.out.println(p.getSexo());
         }
-        for (Pessoa i: array){
-            System.out.println(i.getNome());
-            System.out.println(i.getAltura());
-            System.out.println(i.getSexo());
-        }
-        for(int i=0; i < 4; i++){
-            System.out.println(array[i].getNome());
-            System.out.println(array[i].getAltura());
-            System.out.println(array[i].getSexo());
+
+        for(int i=0; i < listagemPessoas.size(); i++){
+            System.out.println(listagemPessoas.get(i).getNome());
+            System.out.println(listagemPessoas.get(i).getAltura());
+            System.out.println(listagemPessoas.get(i).getSexo());
         }
     }
 }
